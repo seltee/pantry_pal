@@ -5,7 +5,7 @@ class PantryItem {
   final DateTime expirationDate;
   final int quantity;
 
-  int get daysLeft => expirationDate.difference(DateTime.now()).inDays;
+  int get daysLeft => expirationDate.difference(DateTime.now()).inDays + 1;
 
   PantryItem({
     required this.id,

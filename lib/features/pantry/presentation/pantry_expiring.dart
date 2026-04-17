@@ -7,13 +7,15 @@ class PantryExpiring extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final daysLeft = item.expirationDate.difference(DateTime.now()).inDays + 1;
+
     return SizedBox(
       width: double.infinity,
       child: Card(
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(vertical: 8, horizontal: 16),
           child: Text(
-            '${item.name} expiring in ${item.expirationDate.difference(DateTime.now()).inDays} days',
+            '${item.name} expiring in $daysLeft ${daysLeft == 1 ? 'day' : 'days'}',
           ),
         ),
       ),

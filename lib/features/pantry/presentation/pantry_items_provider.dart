@@ -78,14 +78,14 @@ class PantryItemsProvider extends ChangeNotifier {
 
   List<PantryItem> get expiringItems {
     return model.items.where((item) {
-      var difference = item.expirationDate.difference(DateTime.now()).inHours;
-      return difference >= 0 && difference < 48;
+      var difference = item.expirationDate.difference(DateTime.now()).inDays;
+      return difference >= 0 && difference < 2;
     }).toList();
   }
 
   List<PantryItem> get expiredItems {
     return model.items.where((item) {
-      var difference = item.expirationDate.difference(DateTime.now()).inHours;
+      var difference = item.expirationDate.difference(DateTime.now()).inDays;
       return difference < 0;
     }).toList();
   }

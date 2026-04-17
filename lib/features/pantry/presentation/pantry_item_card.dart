@@ -101,7 +101,7 @@ class _ExpirationTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var difference = dateTime.difference(DateTime.now()).inDays;
+    var difference = dateTime.difference(DateTime.now()).inDays + 1;
 
     return Text(
       _getText(difference),
