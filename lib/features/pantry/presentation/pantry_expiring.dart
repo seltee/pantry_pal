@@ -13,7 +13,7 @@ class PantryExpiring extends StatelessWidget {
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(vertical: 8, horizontal: 16),
           child: Text(
-            '${item.name} expiring in ${item.expirationDate.difference(DateTime.now()).inHours} hours',
+            '${item.name} expiring in ${item.expirationDate.difference(DateTime.now()).inDays} days',
           ),
         ),
       ),
