@@ -86094,7 +86094,7 @@ A.zf.prototype={
 ae(){return new A.S1(A.c([B.Fa,B.MZ,B.Pg],t.p))}}
 A.S1.prototype={
 G(a){var s,r,q,p=null,o=A.I(a).ok.c
-o=A.as2(p,p,A.eR(A.bW("PantryPal",p,p,p,o==null?p:o.aE(A.dM(p,p,p,p,p,p,p,p,p,p,p,24,p,p,p,p,p,!0,p,p,p,p,p,p,p,p)),p,p,p),p,p))
+o=A.as2(p,p,A.eR(A.bW("Pantry Pal",p,p,p,o==null?p:o.aE(A.dM(p,p,p,p,p,p,p,p,p,p,p,24,p,p,p,p,p,!0,p,p,p,p,p,p,p,p)),p,p,p),p,p))
 s=this.d
 r=A.axm(B.bT,this.e,s)
 q=A.ca(B.GW,20,20)
@@ -86118,7 +86118,7 @@ G(a){var s=null
 return A.eR(A.lV(s,this.c,B.y,new A.a5(240,440,0,1/0),new A.e6(s,s,s,s,A.c([new A.bi(0,B.M,A.ak(40,B.l.B()>>>16&255,B.l.B()>>>8&255,B.l.B()&255),B.Mb,25)],t.V),s,B.be),s,A.bk(a,s,t.w).w.a.b,s,s,s,s,s),s,s)}}
 A.O7.prototype={
 G(a){var s=A.mC(a,t.Wp)
-return new A.zj(this.c,"PantryPal",$.aF2(),$.aEY(),s.a.a,null)}}
+return new A.zj(this.c,"Pantry Pal",$.aF2(),$.aEY(),s.a.a,null)}}
 A.IP.prototype={
 G(a){var s=A.mC(a,t.FI),r=s.gJs().length,q=s.gVa().length,p=s.gamm().length,o=A.I(a),n=q>0?A.I(a).ax.fy:A.I(a).k2.f,m=p>0?A.I(a).ax.fy:A.I(a).k2.f,l=t.p
 l=A.c([A.eL(A.c([new A.ty(B.Gx,r,"Total",o.k2.f,null),new A.ty(B.GD,q,"Expiring",n,null),new A.ty(B.GE,p,"Expired",m,null)],l),B.bf,B.kM,B.a5,0)],l)
