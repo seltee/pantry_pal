@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantry_pal/core/layout/main_screen.dart';
 import 'package:pantry_pal/core/layout/mobile_wrapper.dart';
@@ -19,9 +18,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PantryItemsProvider(prefs)),
         ChangeNotifierProvider(create: (_) => SettingsProvider(prefs)),
       ],
-      child: ThemedApp(
-        child: kIsWeb ? MobileWrapper(child: MainScreen()) : MainScreen(),
-      ),
+      child: ThemedApp(child: MobileWrapper(child: MainScreen())),
     ),
   );
 }

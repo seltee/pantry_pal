@@ -6,6 +6,7 @@ import 'package:pantry_pal/core/layout/form/form_quantity.dart';
 import 'package:pantry_pal/core/layout/form/form_action_button.dart';
 import 'package:pantry_pal/core/layout/column_padding.dart';
 import 'package:pantry_pal/core/layout/form/form_padding.dart';
+import 'package:pantry_pal/core/layout/mobile_wrapper.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_item.dart';
 import 'package:pantry_pal/features/pantry/presentation/pantry_items_provider.dart';
 import 'package:provider/provider.dart';
@@ -17,38 +18,40 @@ class PantryEditScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final pantryItemsProvider = context.watch<PantryItemsProvider>();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Item'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, size: 24),
-          onPressed: () => Navigator.pop(context),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 8),
-            child: IconButton(
-              icon: const Icon(
-                Icons.delete_outline,
-                size: 24,
-                color: Colors.red,
-              ),
-              tooltip: 'Delete item',
-              onPressed: () {
-                pantryItemsProvider.removeEditedItem();
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(const SnackBar(content: Text('Item removed!')));
-                Navigator.pop(context); // Return to previous screen
-              },
-            ),
+    return MobileWrapper(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Edit Item'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, size: 24),
+            onPressed: () => Navigator.pop(context),
           ),
-        ],
-      ),
-      body: FormPadding(
-        child: pantryItemsProvider.hasEditingItem
-            ? EditItemForm(pantryItem: pantryItemsProvider.editingItem)
-            : Container(),
+          actions: [
+            Padding(
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 8),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.delete_outline,
+                  size: 24,
+                  color: Colors.red,
+                ),
+                tooltip: 'Delete item',
+                onPressed: () {
+                  pantryItemsProvider.removeEditedItem();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Item removed!')),
+                  );
+                  Navigator.pop(context); // Return to previous screen
+                },
+              ),
+            ),
+          ],
+        ),
+        body: FormPadding(
+          child: pantryItemsProvider.hasEditingItem
+              ? EditItemForm(pantryItem: pantryItemsProvider.editingItem)
+              : Container(),
+        ),
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:pantry_pal/core/layout/form/form_quantity.dart';
 import 'package:pantry_pal/core/layout/form/form_action_button.dart';
 import 'package:pantry_pal/core/layout/column_padding.dart';
 import 'package:pantry_pal/core/layout/form/form_padding.dart';
+import 'package:pantry_pal/core/layout/mobile_wrapper.dart';
 import 'package:pantry_pal/features/pantry/presentation/pantry_items_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,15 +15,17 @@ class PantryAddScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add New Item'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+    return MobileWrapper(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Add New Item'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
         ),
+        body: FormPadding(child: const AddItemForm()),
       ),
-      body: FormPadding(child: const AddItemForm()),
     );
   }
 }
