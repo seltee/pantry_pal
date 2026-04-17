@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_category.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_item.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_items_model.dart';
@@ -13,7 +13,7 @@ class PantryItemsProvider extends ChangeNotifier {
   PantryItemsProvider(this._prefs) {
     _loadItems();
     _loadPreferences();
-    setTestItems();
+    // setTestItems();
   }
 
   void setTestItems() async {
@@ -53,7 +53,7 @@ class PantryItemsProvider extends ChangeNotifier {
     try {
       return model.categories.where((category) => category.name == name).first;
     } catch (e) {
-      return PantryCategory(name: "Unknown");
+      return PantryCategory(name: "Unknown", icon: Icons.inventory_2_outlined);
     }
   }
 

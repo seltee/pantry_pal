@@ -1,3 +1,4 @@
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_category.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_item.dart';
 import 'package:uuid/uuid.dart';
@@ -19,6 +20,7 @@ class PantryItemsModel {
         step: 100,
         singular: 'gramm',
         multiple: 'gramms',
+        icon: Symbols.cake,
       ),
     );
     categories.add(
@@ -27,6 +29,7 @@ class PantryItemsModel {
         step: 100,
         singular: 'ml',
         multiple: 'mls',
+        icon: Symbols.fastfood,
       ),
     );
     categories.add(
@@ -35,15 +38,19 @@ class PantryItemsModel {
         step: 100,
         singular: 'gramm',
         multiple: 'gramms',
+        icon: Symbols.inventory_2,
       ),
     );
-    categories.add(PantryCategory(name: 'Canned Goods'));
+    categories.add(
+      PantryCategory(name: 'Canned Goods', icon: Symbols.inventory_2),
+    );
     categories.add(
       PantryCategory(
         name: 'Oil & vinegar',
         step: 100,
         singular: 'ml',
         multiple: 'mls',
+        icon: Symbols.water_bottle,
       ),
     );
     categories.add(
@@ -52,6 +59,7 @@ class PantryItemsModel {
         step: 100,
         singular: 'ml',
         multiple: 'mls',
+        icon: Symbols.local_drink,
       ),
     );
     categories.add(
@@ -60,6 +68,7 @@ class PantryItemsModel {
         step: 10,
         singular: 'gramm',
         multiple: 'gramms',
+        icon: Symbols.grain,
       ),
     );
     categories.add(
@@ -68,18 +77,20 @@ class PantryItemsModel {
         step: 10,
         singular: 'gramm',
         multiple: 'gramms',
+        icon: Symbols.inventory_2,
       ),
     );
-    categories.add(PantryCategory(name: 'Snacks'));
+    categories.add(PantryCategory(name: 'Snacks', icon: Symbols.icecream));
     categories.add(
       PantryCategory(
         name: 'Supplements',
         step: 100,
         singular: 'gramm',
         multiple: 'gramms',
+        icon: Symbols.inventory_2,
       ),
     );
-    categories.add(PantryCategory(name: 'Fruits'));
+    categories.add(PantryCategory(name: 'Fruits', icon: Symbols.nutrition));
   }
 
   bool hasCategory(String categoryName) {

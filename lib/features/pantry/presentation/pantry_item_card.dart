@@ -11,6 +11,7 @@ class PantryItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemsProvider = context.watch<PantryItemsProvider>();
+    final category = itemsProvider.getCategory(item.category);
 
     return SizedBox(
       width: double.infinity,
@@ -29,7 +30,7 @@ class PantryItemCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(width: 60, child: _Icon(category: item.category)),
+                SizedBox(width: 60, child: Icon(category.icon, size: 24)),
                 Column(
                   children: [
                     Text(
@@ -75,30 +76,6 @@ class PantryItemCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _Icon extends StatelessWidget {
-  final String category;
-  const _Icon({required this.category});
-
-  IconData _getIcon() {
-    if (category == 'Pasta') {
-      return Icons.dinner_dining_outlined;
-    }
-    if (category == 'Bakery') {
-      return Icons.bakery_dining_outlined;
-    }
-    if (category == 'Drinks') {
-      return Icons.local_drink_outlined;
-    }
-
-    return Icons.inventory_2_outlined;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Icon(_getIcon(), size: 24);
   }
 }
 
