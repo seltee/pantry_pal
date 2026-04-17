@@ -115,6 +115,7 @@ class _EditItemFormState extends State<EditItemForm> {
   @override
   Widget build(BuildContext context) {
     final pantryItemsProvider = context.watch<PantryItemsProvider>();
+    final category = pantryItemsProvider.getCategory(_selectedCategory);
 
     return Form(
       key: _formKey,
@@ -124,7 +125,9 @@ class _EditItemFormState extends State<EditItemForm> {
           FormName(nameController: _nameController),
           ColumnPadding(),
           FormCategorySelector(
-            categories: pantryItemsProvider.categories,
+            categories: pantryItemsProvider.categories
+                .map((category) => category.name)
+                .toList(),
             currentCategory: _selectedCategory,
             setCategory: (String category) => setState(() {
               _selectedCategory = category;
@@ -143,6 +146,9 @@ class _EditItemFormState extends State<EditItemForm> {
             setQuantity: (int quantity) => setState(() {
               _quantity = quantity;
             }),
+            singular: category.singular,
+            multiple: category.multiple,
+            step: category.step,
           ),
           ColumnPadding(),
           FormActionButton(

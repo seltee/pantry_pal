@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:pantry_pal/features/pantry/data/pantry_category.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_item.dart';
 import 'package:pantry_pal/features/pantry/data/pantry_items_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,6 +13,7 @@ class PantryItemsProvider extends ChangeNotifier {
   PantryItemsProvider(this._prefs) {
     _loadItems();
     _loadPreferences();
+    setTestItems();
   }
 
   void setTestItems() async {
@@ -21,11 +23,11 @@ class PantryItemsProvider extends ChangeNotifier {
     _model.addItem('Oranges', 'Fruits', 5, now.add(Duration(days: 3)));
     _model.addItem('Milk', 'Drinks', 2000, now.add(Duration(days: 4)));
     _model.addItem('Apple Juice', 'Drinks', 500, now.add(Duration(days: 5)));
-    _model.addItem('Cookies', 'Bakery', 10, now.add(Duration(days: 6)));
-    _model.addItem('Candies', 'Bakery', 20, now.add(Duration(days: 10)));
-    _model.addItem('Waffles', 'Bakery', 4, now.add(Duration(days: 2)));
-    _model.addItem('Bread', 'Bakery', 1, now.add(Duration(days: 2)));
-    _model.addItem('Pasta', 'Pasta', 1, now.add(Duration(days: 2)));
+    _model.addItem('Cookies', 'Snacks', 10, now.add(Duration(days: 6)));
+    _model.addItem('Candies', 'Snacks', 20, now.add(Duration(days: 10)));
+    _model.addItem('Waffles', 'Snacks', 4, now.add(Duration(days: 2)));
+    _model.addItem('Bread', 'Snacks', 1, now.add(Duration(days: 2)));
+    _model.addItem('Pasta', 'Grains', 1, now.add(Duration(days: 2)));
     _model.addItem(
       'Oils & Sauces',
       'Oils & Sauces',
@@ -43,9 +45,17 @@ class PantryItemsProvider extends ChangeNotifier {
   }
 
   PantryItemsModel get model => _model;
-  List<String> get categories => model.categories;
+  List<PantryCategory> get categories => model.categories;
   bool get hasItems => model.items.isNotEmpty;
   bool get isSortAscending => model.isSortAscending;
+
+  PantryCategory getCategory(String name) {
+    try {
+      return model.categories.where((category) => category.name == name).first;
+    } catch (e) {
+      return PantryCategory(name: "Unknown");
+    }
+  }
 
   List<PantryItem> get totalItems {
     if (_model.isSortAscending) {

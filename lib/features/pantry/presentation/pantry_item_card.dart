@@ -57,7 +57,7 @@ class PantryItemCard extends StatelessWidget {
                               ?.merge(TextStyle(fontSize: 12)),
                         ),
                         Text(
-                          " pcs",
+                          ' ${item.quantity == 1 ? itemsProvider.getCategory(item.category).singular : itemsProvider.getCategory(item.category).multiple}',
                           style: Theme.of(context).textTheme.displaySmall
                               ?.merge(TextStyle(fontSize: 12)),
                         ),

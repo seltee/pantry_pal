@@ -12,7 +12,7 @@ class MobileWrapper extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withAlpha(30),
+              color: Colors.black.withAlpha(40),
               blurRadius: 25,
               offset: const Offset(0, 10),
             ),

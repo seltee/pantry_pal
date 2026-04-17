@@ -7,6 +7,7 @@ import 'package:pantry_pal/core/layout/form/form_action_button.dart';
 import 'package:pantry_pal/core/layout/column_padding.dart';
 import 'package:pantry_pal/core/layout/form/form_padding.dart';
 import 'package:pantry_pal/core/layout/mobile_wrapper.dart';
+import 'package:pantry_pal/features/pantry/data/pantry_category.dart';
 import 'package:pantry_pal/features/pantry/presentation/pantry_items_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -68,6 +69,13 @@ class _AddItemFormState extends State<AddItemForm> {
     return _nameController.text.trim().isNotEmpty;
   }
 
+  void _setCategory(PantryCategory category) {
+    setState(() {
+      _selectedCategory = category.name;
+      _quantity = category.step;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -83,6 +91,7 @@ class _AddItemFormState extends State<AddItemForm> {
   @override
   Widget build(BuildContext context) {
     final pantryItemsProvider = context.watch<PantryItemsProvider>();
+    final category = pantryItemsProvider.getCategory(_selectedCategory);
 
     return Form(
       key: _formKey,
@@ -92,11 +101,12 @@ class _AddItemFormState extends State<AddItemForm> {
           FormName(nameController: _nameController),
           ColumnPadding(),
           FormCategorySelector(
-            categories: pantryItemsProvider.categories,
+            categories: pantryItemsProvider.categories
+                .map((category) => category.name)
+                .toList(),
             currentCategory: _selectedCategory,
-            setCategory: (String category) => setState(() {
-              _selectedCategory = category;
-            }),
+            setCategory: (String categoryName) =>
+                _setCategory(pantryItemsProvider.getCategory(categoryName)),
           ),
           ColumnPadding(),
           FormExpirationDate(
@@ -111,6 +121,9 @@ class _AddItemFormState extends State<AddItemForm> {
             setQuantity: (int quantity) => setState(() {
               _quantity = quantity;
             }),
+            singular: category.singular,
+            multiple: category.multiple,
+            step: category.step,
           ),
           ColumnPadding(),
           FormActionButton(
