@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'PantryPal',
+            'Pantry Pal',
             style: Theme.of(
               context,
             ).textTheme.displaySmall?.merge(TextStyle(fontSize: 24)),

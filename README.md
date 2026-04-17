@@ -1,12 +1,12 @@
-# PantryPal – Smart Pantry Tracker
+# Pantry Pal – Smart Pantry Tracker
 
 **A clean and intuitive Flutter application designed to help users track pantry items and reduce food waste.**
 
-PantryPal provides a simple yet powerful way to manage your pantry inventory with clear expiration tracking and a modern Material 3 interface.
+Pantry Pal provides a simple yet powerful way to manage your pantry inventory with clear expiration tracking and a modern Material 3 interface.
 
 ## Live Demo
 
-**Web Demo**: [PantryPal Live](https://seltee.github.io/pantry_pal/)
+**Web Demo**: [Pantry Pal Live](https://seltee.github.io/pantry_pal/)
 
 ## Features
 

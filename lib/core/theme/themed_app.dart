@@ -13,7 +13,7 @@ class ThemedApp extends StatelessWidget {
     final settingsProvider = context.watch<SettingsProvider>();
 
     return MaterialApp(
-      title: "PantryPal",
+      title: "Pantry Pal",
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: settingsProvider.themeMode,
